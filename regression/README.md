@@ -32,6 +32,12 @@ to adjust its behaviour.
    and supporting all relevant conversions.
  - `ART_REG_TOLERANCE` changes how tolerant tests are of small changes.
    It will be passed to `compare`’s pass level option and defaults to `2`.
+ - `ASS_TEST_FEATURES` selects track features in `compare` using whitespace- or
+   comma-separated `ASS_Feature` enum names without the `ASS_FEATURE_` prefix.
+   Listed features are enabled; unset or empty leaves all features disabled.
+   A test group's `features` file overrides this
+   variable, including when the file is empty. Unsupported features fail the
+   test; use `ART_REG_SKIP` to skip groups requiring unavailable features.
 
 ### Directory strucutre
 Each non-dot folder contains one group of active tests.
@@ -45,6 +51,8 @@ Furthermore a test dir may contain:
  - `desc` a small text file containing information about the tests
  - `scale` a single line text file, whose content will be passed to `compare` as
     its `scale` parameter. Must satisfy `compare`'s requirements.
+ - `features` a text file passed to `compare` as `ASS_TEST_FEATURES`. For example,
+   `SELECTIVE_WRAP` enables selective reflow for that group.
  - Symlinks to font files for `compare` to use. Read below.
 
 ### Fonts

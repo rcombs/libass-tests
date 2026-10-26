@@ -12,6 +12,10 @@ cmpExe="$1"
 assertExe "$cmpExe"
 testDir="$(getDir "$2")"
 scale="$(cat "${testDir}scale" 2>/dev/null || echo 1)"
+if [ -f "${testDir}features" ] ; then
+    ASS_TEST_FEATURES="$(cat "${testDir}features")" || exit 1
+    export ASS_TEST_FEATURES
+fi
 
 set +e
 
