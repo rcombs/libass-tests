@@ -1,0 +1,40 @@
+Advisory linebreaks for events eligible for selective style overrides.
+
+The features file enables ASS_FEATURE_ADVISORY_LINEBREAKS through compare's
+ASS_TEST_FEATURES environment variable. DejaVu Sans is loaded from the shared
+.fonts directory; no system fonts are used. The 35-pixel style represents text
+enlarged by a consuming application. No renderer style override is needed to
+exercise this track feature.
+
+wrap0 through wrap3 cover the script WrapStyle values, preserved and dropped
+breaks, soft escapes, empty lines, surrounding spaces, and unbreakable words.
+inline covers q changes, resets, spaces across style tags, nonbreaking spaces,
+consecutive breaks, styled text, and bidirectional text. excluded covers the
+positioning/drawing tags and scrolling effects excluded from selective style
+overrides. bidi checks that a retained break is shaped as a space, allowing an
+RLO to continue across the line boundary. Event Name fields identify each case.
+Each PNG is 320x288; its timestamp selects one event.
+
+retry checks that ignoring hard breaks is accepted only when it produces fewer
+lines. Ties preserve authored breaks across all wrap styles, including q2 soft
+escapes, spaces across tags, and multiple hard breaks. The last event checks a
+retry that does reduce line count. The inline cases with different styles at
+breaks, nonbreaking spaces, and bidirectional text also preserve breaks on ties.
+
+Reference provenance:
+The .ass.reference files describe the expected output using ordinary ASS with
+the feature disabled. They are ignored by compare. PNGs were generated from
+these files, not from the feature-enabled test inputs. To reconstruct them,
+copy the .ass.reference files to a temporary directory, dropping the .reference
+suffix; also copy the PNGs there for their timestamps and dimensions and link
+DejaVuSans.ttf. Run compare on that directory with ASS_TEST_FEATURES empty,
+-p 3, and -o pointing to this test group. Generation uses the existing PNGs
+only for dimensions; the reference ASS supplies all rendered content.
+
+The same PNGs also work with ASS_FEATURE_WRAP_UNICODE and/or
+ASS_FEATURE_WHOLE_TEXT_LAYOUT. To check combinations, call compare directly:
+ASS_TEST_FEATURES='ADVISORY_LINEBREAKS WRAP_UNICODE WHOLE_TEXT_LAYOUT' compare selective-wrap -p 0
+run-single.sh instead uses the group's features file.
+
+Literal LF inside a synthetic event cannot be represented in an ASS file and
+is not covered by these file-based fixtures.

@@ -1,0 +1,22 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 320
+PlayResY: 288
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: None
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,DejaVu Sans,35,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,0,2,10,10,10,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Default,tie under q0,0,0,0,,{\q0}MMMM\NMMMM MMMM MMMM MMMM
+Dialogue: 0,0:00:01.00,0:00:02.00,Default,tie under q1,0,0,0,,{\q1}MMMM\NMMMM MMMM MMMM MMMM
+Dialogue: 0,0:00:02.00,0:00:03.00,Default,tie under q2,0,0,0,,{\q2}MMMM\NMMMM MMMM MMMM MMMM
+Dialogue: 0,0:00:03.00,0:00:04.00,Default,tie under q3,0,0,0,,{\q3}MMMM\NMMMM MMMM MMMM MMMM
+Dialogue: 0,0:00:04.00,0:00:05.00,Default,tie with q2 soft escape,0,0,0,,{\q2}MMMM\nMMMM MMMM MMMM MMMM
+Dialogue: 0,0:00:05.00,0:00:06.00,Default,tie trims spaces across tags,0,0,0,,MMMM  \N{\q2}  MMMM MMMM MMMM MMMM
+Dialogue: 0,0:00:06.00,0:00:07.00,Default,tie with multiple hard breaks,0,0,0,,MMMM\NMMMM MMMM\NMMMM MMMM MMMM MMMM
+Dialogue: 0,0:00:07.00,0:00:08.00,Default,fewer lines accepts retry,0,0,0,,MMMM\NMMMM MMMM MMMM

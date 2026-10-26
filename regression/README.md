@@ -52,7 +52,7 @@ Furthermore a test dir may contain:
  - `scale` a single line text file, whose content will be passed to `compare` as
     its `scale` parameter. Must satisfy `compare`'s requirements.
  - `features` a text file passed to `compare` as `ASS_TEST_FEATURES`. For example,
-   `SELECTIVE_WRAP` enables selective reflow for that group.
+   `ADVISORY_LINEBREAKS` enables advisory linebreaks for that group.
  - Symlinks to font files for `compare` to use. Read below.
 
 ### Fonts
